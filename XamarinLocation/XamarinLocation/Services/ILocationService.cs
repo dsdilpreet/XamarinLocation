@@ -11,5 +11,6 @@ namespace XamarinLocation.Services
         Task<Location> GetCurrentLocation();
         Task<PermissionStatus> RequestLocationPermission();
         Task<PermissionStatus> CheckLocationPermission();
+        Task<bool> IsLocationPermissionGranted();
     }
 }

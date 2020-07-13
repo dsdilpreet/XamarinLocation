@@ -12,10 +12,15 @@
     
     <ContentPage.Content>
         <StackLayout>
-            <Button Command="{Binding CheckDeviceLocationServiceEnabledCommand}" Text="Check Device Location Services" />
+            <Button Command="{Binding CheckDeviceLocationServiceCommand}" Text="Check Device Location Services" />
+            <Label Text="{Binding DeviceLocationServiceStatus}"></Label>
+            
             <Button Command="{Binding OpenDeviceLocationSettingsPageCommand}" Text="Open Device Location Settings"/>
-            <Button Command="{Binding OpenAppLocationSettingsPageCommand}" Text="Open App Location Settings"/>
+            <Button Command="{Binding OpenAppSettingsPageCommand}" Text="Open App Settings"/>
+            
             <Button Command="{Binding CheckLocationPermissionsCommand}" Text="Check Location Permission Status" />
+            <Label Text="{Binding LocationPermissionStatus}"></Label>
+            
             <Button Command="{Binding GetLocationCommand}" Text="Get Location"/>
             <Label>
                 <Label.Text>
