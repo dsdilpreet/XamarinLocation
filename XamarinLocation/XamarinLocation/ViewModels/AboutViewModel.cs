@@ -9,8 +9,8 @@ namespace XamarinLocation.ViewModels
     {
         public AboutViewModel()
         {
-            Title = "About";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://xamarin.com"));
+            Title = "About Xamarin Location";
+            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://github.com/dsdilpreet"));
         }
 
         public ICommand OpenWebCommand { get; }

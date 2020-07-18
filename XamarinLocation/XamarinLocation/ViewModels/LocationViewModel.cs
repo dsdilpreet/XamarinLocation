@@ -17,20 +17,26 @@ namespace XamarinLocation.ViewModels
         {
             GetLocationCommand = new Command(async () => await GetLocation());
             OpenAppSettingsPageCommand = new Command(OpenAppSettingsPage);
+            OpenDeviceLocationSettingsPageCommand = new Command(OpenDeviceLocationSettingsPage);
             CheckLocationPermissionsCommand = new Command(async() => await CheckLocationPermissions());
             CheckDeviceLocationServiceCommand = new Command(CheckDeviceLocationService);
+        }
+
+        private void OpenDeviceLocationSettingsPage()
+        {
+            platFormLocationService.OpenDeviceLocationSettingsPage();
         }
 
         private void CheckDeviceLocationService()
         {
             var status = platFormLocationService.IsLocationServiceEnabled();
-            DeviceLocationServiceStatus = status.ToString();
+            DeviceLocationServiceStatus = status ? "Location service enabled" : "Location service disabled";
         }
 
         private async Task CheckLocationPermissions()
         {
             var status = await locationService.IsLocationPermissionGranted();
-            LocationPermissionStatus = status.ToString();
+            LocationPermissionStatus = status ? "Location permission granted" : "Location permission not granted";
         }
 
         private void OpenAppSettingsPage()
@@ -42,6 +48,8 @@ namespace XamarinLocation.ViewModels
         {
             var location = await locationService.GetCurrentLocation();
             Latitude = location.Latitude;
+            Longitude = location.Longitude;
+            Accuracy = Convert.ToDouble(location.Accuracy);
         }
 
         private double latitude;
@@ -101,6 +109,7 @@ namespace XamarinLocation.ViewModels
 
         public Command GetLocationCommand { get; }
         public Command OpenAppSettingsPageCommand { get; }
+        public Command OpenDeviceLocationSettingsPageCommand { get; }
         public Command CheckLocationPermissionsCommand { get; }
         public Command CheckDeviceLocationServiceCommand { get; }
     }

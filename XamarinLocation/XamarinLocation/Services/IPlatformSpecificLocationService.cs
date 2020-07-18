@@ -4,8 +4,9 @@ using System.Text;
 
 namespace XamarinLocation.Services
 {
-    interface IPlatformSpecificLocationService
+    public interface IPlatformSpecificLocationService
     {
         bool IsLocationServiceEnabled();
+        bool OpenDeviceLocationSettingsPage();
     }
 }

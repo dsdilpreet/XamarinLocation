@@ -4,8 +4,6 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 using Xamarin.Forms;
-
-using XamarinLocation.Models;
 using XamarinLocation.Services;
 
 namespace XamarinLocation.ViewModels

@@ -4,34 +4,52 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:XamarinLocation.ViewModels"
              mc:Ignorable="d"
+             Title="Xamarin Location"
              x:Class="XamarinLocation.Views.LocationPage">
 
     <ContentPage.BindingContext>
         <vm:LocationViewModel />
     </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="0,15,0,0"></Setter>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="Medium"></Setter>
+                <Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     
     <ContentPage.Content>
-        <StackLayout>
-            <Button Command="{Binding CheckDeviceLocationServiceCommand}" Text="Check Device Location Services" />
-            <Label Text="{Binding DeviceLocationServiceStatus}"></Label>
-            
-            <Button Command="{Binding OpenDeviceLocationSettingsPageCommand}" Text="Open Device Location Settings"/>
-            <Button Command="{Binding OpenAppSettingsPageCommand}" Text="Open App Settings"/>
-            
-            <Button Command="{Binding CheckLocationPermissionsCommand}" Text="Check Location Permission Status" />
-            <Label Text="{Binding LocationPermissionStatus}"></Label>
-            
-            <Button Command="{Binding GetLocationCommand}" Text="Get Location"/>
-            <Label>
-                <Label.Text>
-                    <MultiBinding StringFormat="{}{0} {1} {2}">
-                        <Binding Path="Latitude" />
-                        <Binding Path="Longitude" />
-                        <Binding Path="Accuracy" />
-                    </MultiBinding>
-                </Label.Text>
-            </Label>
+        <ScrollView>
 
-        </StackLayout>
+            <StackLayout Padding="20" VerticalOptions="Center">
+                <Button Command="{Binding CheckDeviceLocationServiceCommand}" Text="Check Device Location Services" />
+                <Label Text="{Binding DeviceLocationServiceStatus}"></Label>
+
+                <Button Command="{Binding OpenDeviceLocationSettingsPageCommand}" Text="Open Device Location Settings"/>
+                <Button Command="{Binding OpenAppSettingsPageCommand}" Text="Open App Settings"/>
+
+                <Button Command="{Binding CheckLocationPermissionsCommand}" Text="Check Location Permission Status" />
+                <Label Text="{Binding LocationPermissionStatus}"></Label>
+
+                <Button Command="{Binding GetLocationCommand}" Text="Get Location"/>
+                <Label>
+                    <Label.Text>
+                        <MultiBinding StringFormat="{}Latitude: {0}&#x0a; Longitude: {1}&#x0a; Accuracy: {2}">
+                            <Binding Path="Latitude" />
+                            <Binding Path="Longitude" />
+                            <Binding Path="Accuracy" />
+                        </MultiBinding>
+                    </Label.Text>
+                </Label>
+
+            </StackLayout>
+            
+        </ScrollView>
+
     </ContentPage.Content>
 </ContentPage>
