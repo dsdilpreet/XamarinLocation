@@ -17,5 +17,12 @@ namespace XamarinLocation.iOS
         {
             return CLLocationManager.LocationServicesEnabled;
         }
+
+        public bool OpenDeviceLocationSettingsPage()
+        {
+            // not possible anymore according, one example
+            // https://stackoverflow.com/questions/52301580/how-to-programmatically-open-settings-privacy-location-services-in-ios-11
+            throw new NotImplementedException();
+        }
     }
 }
