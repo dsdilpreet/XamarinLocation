@@ -17,5 +17,11 @@ namespace XamarinLocation.iOS
         {
             return CLLocationManager.LocationServicesEnabled;
         }
+
+        public bool OpenDeviceLocationSettingsPage()
+        {
+            // this is not possible in iOS
+            throw new NotImplementedException();
+        }
     }
 }
