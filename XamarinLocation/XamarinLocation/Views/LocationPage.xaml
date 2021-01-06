@@ -39,9 +39,10 @@
                 <Button Command="{Binding GetLocationCommand}" Text="Get Location"/>
                 <Label>
                     <Label.Text>
-                        <MultiBinding StringFormat="{}Latitude: {0}&#x0a; Longitude: {1}&#x0a; Accuracy: {2}">
+                        <MultiBinding StringFormat="{}Latitude: {0}&#x0a; Longitude: {1}&#x0a; Altitude: {2}&#x0a; Accuracy: {3}">
                             <Binding Path="Latitude" />
                             <Binding Path="Longitude" />
+                            <Binding Path="Altitude" />
                             <Binding Path="Accuracy" />
                         </MultiBinding>
                     </Label.Text>

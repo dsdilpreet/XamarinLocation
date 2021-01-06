@@ -46,10 +46,18 @@ namespace XamarinLocation.ViewModels
 
         private async Task GetLocation()
         {
-            var location = await locationService.GetCurrentLocation();
-            Latitude = location.Latitude;
-            Longitude = location.Longitude;
-            Accuracy = Convert.ToDouble(location.Accuracy);
+            try
+            {
+                var location = await locationService.GetCurrentLocation();
+                Latitude = location.Latitude;
+                Longitude = location.Longitude;
+                Altitude = Convert.ToDouble(location.Altitude);
+                Accuracy = Convert.ToDouble(location.Accuracy);
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.ToString());
+            }
         }
 
         private double latitude;
@@ -70,6 +78,17 @@ namespace XamarinLocation.ViewModels
             set 
             { 
                 longitude = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private double altitide;
+        public double Altitude
+        {
+            get { return altitide; }
+            set
+            {
+                altitide = value;
                 OnPropertyChanged();
             }
         }
