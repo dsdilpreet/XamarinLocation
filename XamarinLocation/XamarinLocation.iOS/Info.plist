@@ -34,5 +34,11 @@
     <string>XamarinLocation</string>
     <key>XSAppIconAssets</key>
     <string>Assets.xcassets/AppIcon.appiconset</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Replace this with your reason for requesting location</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Replace this with your reason for requesting location</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Replace this with your reason for requesting location</string>
 </dict>
 </plist>
